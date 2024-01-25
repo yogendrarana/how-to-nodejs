@@ -1,0 +1,40 @@
+
+Cron syntax is used to define schedules for recurring tasks in Unix-like operating systems.
+
+* * * * *
+| | | | |
+| | | | +----- Day of the week (0 - 6) (Sunday = 0)
+| | | +------- Month (1 - 12)
+| | +--------- Day of the month (1 - 31)
+| +----------- Hour (0 - 23)
++------------- Minute (0 - 59)
+
+
+*: Wildcard, meaning "every possible value" for that position.
+,: Comma, for specifying a list of values.
+-: Hyphen, for specifying a range of values.
+/: Slash, for specifying increments.
+
+
+Field Values:
+Minute (0 - 59): 0 to 59
+Hour (0 - 23): 0 to 23
+Day of the month (1 - 31): 1 to 31
+Month (1 - 12): 1 to 12 or use names like Jan, Feb, etc.
+Day of the week (0 - 6): 0 to 6 (Sunday to Saturday) or use names like Sun, Mon, etc.
+
+
+Examples:
+1. Every day at Midnight: 0 0 * * *
+2. Every Monday at 3:30 PM: 30 15 * * 1
+3. Every 15 minutes: */15 * * * *
+4. Every weekday (Monday to Friday) at 8:00 AM: 0 8 * * 1-5
+
+
+Special Characters:
+@reboot: Run once at startup.
+@yearly or @annually: Once a year (equivalent to 0 0 1 1 *).
+@monthly: Once a month (equivalent to 0 0 1 * *).
+@weekly: Once a week (equivalent to 0 0 * * 0).
+@daily or @midnight: Once a day (equivalent to 0 0 * * *).
+@hourly: Once an hour (equivalent to 0 * * * *).
