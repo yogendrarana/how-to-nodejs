@@ -1,0 +1,19 @@
+- Buffer module provides a way to work with binary data directly. 
+- It allows you to allocate and manipulate chunks of memory outside the JavaScript heap. 
+- Buffers are particularly useful when dealing with binary data, such as reading from or writing to files, working with network protocols, or handling data in a raw binary format.
+
+
+Creating Buffer
+Buffer.from()
+Buffer.alloc()
+Buffer.allocUnsafe()
+
+
+Other BUffer Methods
+Buffer.write(string, offset, length): Writes a specified string to a Buffer object2
+Buffer.byteLength(string): Returns the number of bytes required to represent the specified string2
+Buffer.compare(buffer1, buffer2): Compares two Buffer objects and returns true if they are equal, otherwise false2
+Buffer.concat(buffers): Concatenates multiple Buffer objects into a single Buffer object2
+Buffer.fill(value): Fills a Buffer object with the specified value2
+Buffer.from(string): Creates a Buffer object from a string2
+Buffer.toString(encoding, start, end): Returns a string version of a Buffer object2
