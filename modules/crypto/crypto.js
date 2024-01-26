@@ -1,14 +1,22 @@
-const { createHmac } = require('node:crypto');
+const crypto = require('crypto');
 
-const secret = 'secret';
+const data = "My sensitive data";
+const algorithm = 'aes-256-cbc';
+const key = crypto.randomBytes(32); // Example key, use a securely generated key
+const iv = crypto.randomBytes(16);  // Initialization vector
 
-// create hmac instance first by passing algorithm and secret
-// then update the data to be hashed
-// and finally digest the data
+console.log("Original data: ", data);
 
-// createHashmap returns an HMAC object
-// update is called on HMAC instance to update the data to be hashed
-//  digest is called on HMAC instance to return the final hashed data
-const hash = createHmac('sha256', secret).update('I am Yogendra.').digest('hex');
+// Encryption
+const cipher = crypto.createCipheriv(algorithm, key, iv);
+let encryptedData = cipher.update(data, 'utf-8', 'hex');
+encryptedData += cipher.final('hex');
 
-console.log(hash);
+console.log("Encrypted data: ", encryptedData);
+
+// Decryption
+const decipher = crypto.createDecipheriv(algorithm, key, iv);
+let decryptedData = decipher.update(encryptedData, 'hex', 'utf-8');
+decryptedData += decipher.final('utf-8');
+
+console.log("Decrypted data: ", decryptedData);
