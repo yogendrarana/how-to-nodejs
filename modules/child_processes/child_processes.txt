@@ -1,0 +1,11 @@
+- The child_process module provides functionality to spawn child processes, 
+  execute shell commands, 
+  and interact with the input and output streams of those processes. 
+- It is useful for scenarios where you need to run external programs or scripts from within your Node.js application
+
+
+Ways to create a child process in Node.js:
+execFile: Executes a specified file with the node command and returns the output as a string1
+exec: Executes a specified command or file and returns a ChildProcess instance, which can be used to interact with the child process2
+spawn: Executes a specified command or file and returns the output as a string1
+fork: Spawns a new Node.js process and invokes a specified module with an IPC (Inter-Process Communication) communication channel established, allowing messages to be passed between the parent and child processes
